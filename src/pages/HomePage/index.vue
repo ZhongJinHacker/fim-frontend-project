@@ -46,6 +46,6 @@ export default {
 .vertical-line {
   width: 1px;
   background-color: gray;
-  opacity: 0.5;
+  opacity: 0.3;
 }
 </style>

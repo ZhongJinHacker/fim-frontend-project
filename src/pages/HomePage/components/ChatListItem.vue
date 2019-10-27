@@ -50,7 +50,7 @@ export default {
   height: 1px;
   background-color: gray;
   margin-top: 4px;
-  opacity: 0.5;
+  opacity: 0.3;
 }
 .item-detail {
   display: flex;

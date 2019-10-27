@@ -21,7 +21,10 @@ router.beforeEach((to, from, next) => {
   if (getToken()) {
     if (to.path === '/login') {
       next({ path: '/' })
+    } else {
+      next()
     }
+    NProgress.done()
   } else {
     console.log('from', from)
     console.log('to', to)

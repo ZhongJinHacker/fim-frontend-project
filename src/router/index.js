@@ -8,10 +8,10 @@ Vue.use(Router)
 const constantRouteArray = [
   {
     path: '/',
-    name: 'HelloWorld',
+    name: 'HomePage',
     component: HelloWorld,
     meta: {
-      title: 'Hello',
+      title: 'home',
       requiresAuth: true
     }
   },

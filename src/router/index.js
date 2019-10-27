@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
 import LoginPage from '@/pages/LoginPage'
+import HomePage from '@/pages/HomePage'
 
 Vue.use(Router)
 
@@ -9,7 +9,7 @@ const constantRouteArray = [
   {
     path: '/',
     name: 'HomePage',
-    component: HelloWorld,
+    component: HomePage,
     meta: {
       title: 'home',
       requiresAuth: true

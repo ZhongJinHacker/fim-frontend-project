@@ -85,20 +85,7 @@ export default {
 </script>
 
 <style rel="stylesheet/scss" lang="scss">
-  $bg: #2d3a4b;
-  $light_gray:#eee;
-  $dark_gray:#889aa4;
-
-  .page-container {
-    display: flex;
-    display:-webkit-flex;
-    align-items: center;
-    justify-content: center;
-    position: fixed;
-    height: 100%;
-    width: 100%;
-    background-color: $light_gray
-  }
+  @import '@/styles/common.scss';
 
   .login-container {
     position: fixed;

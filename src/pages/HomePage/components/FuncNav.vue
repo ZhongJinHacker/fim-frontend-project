@@ -23,18 +23,27 @@ export default {
 @import "@/styles/common.scss";
 
 .tab-container {
-  width: 80px;
+  width: 70px;
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
-  position: relative;
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 .avatar {
   display: flex;
-  justify-content: center;
   width: 50px;
   height: 50px;
   margin-top: 10px;
+}
+.menu {
+  position: relative;
+  bottom: -400px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
 }
 </style>

@@ -5,7 +5,7 @@
       <div class= "vertical-line" />
       <ChatList/>
       <div class= "vertical-line" />
-      <div class="chatting-container">chat page</div>
+      <ChatWindow/>
     </div>
   </div>
 </template>
@@ -13,12 +13,14 @@
 <script>
 import FuncNav from './components/FuncNav'
 import ChatList from './components/ChatList'
+import ChatWindow from './components/ChatWindow'
 
 export default {
   name: "HomePage",
   components: {
     FuncNav,
-    ChatList
+    ChatList,
+    ChatWindow
   },
   data() {
     return {
@@ -40,19 +42,6 @@ export default {
   background-color: white;
   border-radius: 5px;
   box-shadow: 0 0 10px #000;
-}
-.chatlist-container {
-  width: 300px;
-}
-.menu {
-  position: relative;
-  bottom: -400px;
-  margin-left: auto;
-  margin-right: auto;
-  display: flex;
-  justify-content: center;
-  width: 20px;
-  height: 20px;
 }
 .vertical-line {
   width: 1px;

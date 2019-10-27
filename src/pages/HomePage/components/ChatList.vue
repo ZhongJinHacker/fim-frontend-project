@@ -36,12 +36,11 @@ export default {
 </script>
 
 <style lang="scss" rel="stylesheet/scss">
-.chatting-container {
-  width: 100%;
+.chatlist-container {
+  width: 200px;
   height: 100%;
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
-  margin-left: 2px;
   display: flex;
   flex-direction: column;
 }

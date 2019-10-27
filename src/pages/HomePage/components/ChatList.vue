@@ -36,8 +36,10 @@ export default {
 </script>
 
 <style lang="scss" rel="stylesheet/scss">
+@import "@/styles/common.scss";
+
 .chatlist-container {
-  width: 200px;
+  width: $home_contact_list_width;
   height: 100%;
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;

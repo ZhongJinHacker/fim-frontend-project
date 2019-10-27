@@ -2,6 +2,15 @@ $bg: #2d3a4b;
 $light_gray:#eee;
 $dark_gray:#889aa4;
 
+$home_page_height: 500px;
+$home_page_width: 800px;
+
+$home_nav_width: 70px;
+
+$home_contact_list_width: 200px;
+
+$chat-window-width: $home_page_width - $home_nav_width - $home_contact_list_width;
+
 .page-container {
   display: flex;
   display:-webkit-flex;

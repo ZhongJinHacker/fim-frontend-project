@@ -37,8 +37,8 @@ export default {
 .home-container {
   display: flex;
   flex-wrap: nowrap;
-  height: 500px;
-  width: 800px;
+  height: $home_page_height;
+  width: $home_page_width;
   background-color: white;
   border-radius: 5px;
   box-shadow: 0 0 10px #000;

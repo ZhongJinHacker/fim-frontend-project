@@ -23,7 +23,7 @@ export default {
 @import "@/styles/common.scss";
 
 .tab-container {
-  width: 70px;
+  width: $home_nav_width;
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
   display: flex;

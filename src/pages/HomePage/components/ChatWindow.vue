@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="chat-window-container">
     chat page
   </div>
 </template>
@@ -10,6 +10,11 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss" rel="stylesheet/scss">
+@import "@/styles/common.scss";
 
+.chat-window-container {
+  height: 100%;
+  width: $chat-window-width;
+}
 </style>

@@ -1,23 +1,30 @@
 <template>
   <div class="chat-window-container">
-    <div class="chat-window-title">
-      测试号
-    </div>
+    <div class="chat-window-title">测试号</div>
     <div class="chat-window-divider" />
     <div class="chat-window-record">
-      聊天记录
+      <ul>
+        <LeftChatItem/>
+        <LeftChatItem/>
+        
+        <RightChatItem/>
+
+      </ul>
     </div>
     <div class="chat-window-divider" />
-    <div>
-      输入框
-    </div>
+    <div>输入框</div>
   </div>
 </template>
 
 <script>
+import LeftChatItem from './LeftChatItem.vue'
+import RightChatItem from './RightChatItem.vue'
 export default {
-
-}
+  components: {
+    LeftChatItem,
+    RightChatItem
+  }
+};
 </script>
 
 <style lang="scss" rel="stylesheet/scss">

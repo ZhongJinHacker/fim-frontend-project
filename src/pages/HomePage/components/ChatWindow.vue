@@ -40,7 +40,7 @@ export default {
   flex-direction: column;
 }
 .chat-window-title {
-  height: 50px;
+  height: 54px;
 }
 .chat-window-record {
   height: 300px;

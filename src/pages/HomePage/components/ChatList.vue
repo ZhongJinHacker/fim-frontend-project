@@ -1,6 +1,9 @@
 <template>
   <div class="chatlist-container">
-    <div class="chatlist-search"/>
+    <div class="chatlist-search">
+      <SearchWindow/>
+    </div>
+    <div class="item-devider" />
     <div>
       <ul>
         <li class="chat-list" v-bind:key="index"  v-for="(contact, index) in contacts" >
@@ -13,11 +16,13 @@
 
 <script>
 import ChatListItem from './ChatListItem'
+import SearchWindow from './SearchWindow'
 
 export default {
 
   components: {
-    ChatListItem
+    ChatListItem,
+    SearchWindow
   },
   data() {
     return {
@@ -47,8 +52,8 @@ export default {
   flex-direction: column;
 }
 .chatlist-search {
+  border-width: 0px;
   height: 50px;
-  background-color: grey;
 }
 ul, li {
   list-style-type: none;

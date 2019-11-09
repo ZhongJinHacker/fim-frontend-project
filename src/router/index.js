@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import LoginPage from '@/pages/LoginPage'
+import LoginPage from '@/pages/LoginPage/index'
 import HomePage from '@/pages/HomePage/index'
 
 Vue.use(Router)

@@ -8,6 +8,8 @@ import 'element-ui/lib/theme-chalk/index.css'
 import '@/permission.js' // permission control
 import store from './store'
 
+import './mock/index.js'
+
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */

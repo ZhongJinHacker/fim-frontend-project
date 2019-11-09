@@ -4,7 +4,7 @@ import { Message } from 'element-ui'
 import { getToken } from '@/utils/auth'
 
 const axiosRequest = axios.create({
-  baseURL: 'http://localhost:8088/',
+  baseURL: 'http://localhost:8080/',
   timeout: 15000
 })
 

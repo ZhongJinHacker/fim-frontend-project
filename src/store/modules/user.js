@@ -25,9 +25,8 @@ const user = {
     async Login ({ commit }, userInfo) {
       const username = userInfo.username.trim()
       const password = userInfo.pass.trim()
-      //const response = await login(username, password)
-      //const token = response.obj
-      const token = '123456'
+      const response = await login(username, password)
+      const token = response.obj
       commit('SET_TOKEN', token)
     }
   }

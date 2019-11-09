@@ -6,23 +6,26 @@
       <ul>
         <LeftChatItem/>
         <LeftChatItem/>
-        
         <RightChatItem/>
-
       </ul>
     </div>
     <div class="chat-window-divider" />
-    <div>输入框</div>
+    <!-- <div>输入框</div> -->
+    <div class="chat-window-input">
+      <ChatInputWindow />
+    </div>
   </div>
 </template>
 
 <script>
 import LeftChatItem from './LeftChatItem.vue'
 import RightChatItem from './RightChatItem.vue'
+import ChatInputWindow from './ChatInputWindow.vue'
 export default {
   components: {
     LeftChatItem,
-    RightChatItem
+    RightChatItem,
+    ChatInputWindow
   }
 };
 </script>
@@ -47,5 +50,9 @@ export default {
   width: 100%;
   background-color: grey;
   opacity: 0.3;
+}
+.chat-window-input {
+  background-color: red;
+  flex: 1;
 }
 </style>

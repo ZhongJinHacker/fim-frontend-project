@@ -1,24 +1,14 @@
 import router from './router'
 import NProgress from 'nprogress' // Progress 进度条
 import 'nprogress/nprogress.css'// Progress 进度条样式
-import { getToken } from '@/utils/auth'
 import { Message } from 'element-ui'
-
-function hasPermission (roles, permissionRoles) {
-  if (roles.indexOf('admin')) {
-    return true
-  }
-  if (!permissionRoles) {
-    return true
-  }
-  return roles.some(role => permissionRoles.indexOf(role) >= 0)
-}
+import GlobalInfo from './global/GlobalInfo'
 
 const whiteList = ['/login', '/authredirect']
 
 router.beforeEach((to, from, next) => {
   NProgress.start()
-  if (getToken()) {
+  if (isLogin()) {
     if (to.path === '/login') {
       next({ path: '/' })
     } else {
@@ -41,3 +31,7 @@ router.beforeEach((to, from, next) => {
 router.afterEach(() => {
   NProgress.done() // 结束Progress
 })
+
+function isLogin () {
+  return GlobalInfo.isLogin
+}

@@ -1,16 +1,17 @@
 import { login } from '@/api/login'
-import { getToken, setToken } from '@/utils/auth'
+import GlobalInfo from '../../global/GlobalInfo'
 
 const user = {
   state: {
-    token: getToken(),
     name: '',
-    avatar: ''
+    avatar: '',
+    isLogin: false
   },
 
   mutations: {
     SET_TOKEN: (state, token) => {
       state.token = token
+      GlobalInfo.isLogin = true
     },
     SET_NAME: (state, name) => {
       state.name = name
@@ -24,13 +25,12 @@ const user = {
     async Login ({ commit }, userInfo) {
       const username = userInfo.username.trim()
       const password = userInfo.pass.trim()
-      const response = await login(username, password)
-      const token = response.obj
-      setToken(token)
+      //const response = await login(username, password)
+      //const token = response.obj
+      const token = '123456'
       commit('SET_TOKEN', token)
     }
   }
 }
 
 export default user
-

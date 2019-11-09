@@ -7,6 +7,14 @@ Vue.use(Router)
 
 const constantRouteArray = [
   {
+    path: '/login',
+    name: 'login',
+    component: LoginPage,
+    meta: {
+      title: 'login'
+    }
+  },
+  {
     path: '/',
     name: 'HomePage',
     component: HomePage,
@@ -14,16 +22,7 @@ const constantRouteArray = [
       title: 'home',
       requiresAuth: true
     }
-  },
-  {
-    path: '/login',
-    name: 'login',
-    component: LoginPage,
-    meta: {
-      title: 'login'
-    }
   }
-
 ]
 
 export default new Router({

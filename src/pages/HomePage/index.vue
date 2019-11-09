@@ -27,6 +27,9 @@ export default {
       
     };
   },
+  created: function() {
+    console.log(this.$store.user.isLogin) 
+  },
   methods: {}
 };
 </script>

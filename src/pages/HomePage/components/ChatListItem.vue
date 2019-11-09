@@ -8,10 +8,10 @@
     </div>
     <div class="item-detail">
       <div class="name">
-        {{ contact.userName }}
+        {{ chat.userName }}
       </div>
       <div class="msg">
-        {{ contact.lastMsg }}
+        {{ chat.lastMsg }}
       </div>
     </div>
   </div>
@@ -22,7 +22,7 @@
 <script>
 export default {
 
-  props: ["contact"]
+  props: ["chat"]
 }
 </script>
 

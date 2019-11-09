@@ -6,8 +6,8 @@
     <div class="item-devider" />
     <div>
       <ul>
-        <li class="chat-list" v-bind:key="index"  v-for="(contact, index) in contacts" >
-          <ChatListItem v-bind:contact="contact"/>
+        <li class="chat-list" v-bind:key="index"  v-for="(chat, index) in chatList" >
+          <ChatListItem v-bind:chat="chat"/>
         </li>
       </ul>
     </div>
@@ -17,6 +17,8 @@
 <script>
 import ChatListItem from './ChatListItem'
 import SearchWindow from './SearchWindow'
+import { chatList } from '@/api/userRequest'
+ 
 
 export default {
 
@@ -26,7 +28,7 @@ export default {
   },
   data() {
     return {
-      contacts: [
+      chatList: [
         { userName: 'jim', lastMsg: '你好' },
         { userName: 'jim', lastMsg: '你好' },
         { userName: 'jim', lastMsg: '你好' },
@@ -35,7 +37,14 @@ export default {
         { userName: 'jim', lastMsg: '你好' },
         { userName: 'jim', lastMsg: '你好' }
       ]
-    };
+    }
+  },
+  async mounted() {
+    const userId = this.$store.state.user.userId
+    const token = this.$store.state.user.token
+    const response = await chatList({ userId, token })
+    this.chatList = response.obj.chatList
+    console.log('data--> ' + this.chatList[0])
   }
 }
 </script>

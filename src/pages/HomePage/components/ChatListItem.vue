@@ -1,11 +1,7 @@
 <template>
 <div class="chat-item-container">
-  <div class="item-container">
-    <div class="item-avatar">
-      <svg class="icon" aria-hidden="true">
-        <use xlink:href="#icon-touxiang" />
-      </svg>
-    </div>
+  <div class="detail-container">
+    <img class="item-avatar" src="@/assets/iconfont/avatar.png"/>
     <div class="item-detail">
       <div class="name">
         {{ chat.userName }}
@@ -30,14 +26,15 @@ export default {
 .chat-item-container {
   display: flex;
   flex-direction: column;
-  height: 55px;
-  margin-left: 2px;
-  margin-right: 2px;
+  height: 60px;
+  width: 100%;
 }
-.item-container {
+.detail-container {
   display: flex;
   flex-direction: row;
   height: 50px;
+  margin-top: 10px;
+  margin-left: 5px;
 }
 .name {
   font-size: 16px
@@ -46,23 +43,20 @@ export default {
   font-size: 12px
 }
 .item-devider {
-  width: 100%;
+  width: 98%;
   height: 1px;
   background-color: gray;
-  margin-top: 4px;
   opacity: 0.3;
+  margin-left: 2px;
+  margin-right: 2px;
 }
 .item-detail {
   display: flex;
   flex-direction: column;
-  margin-top: 10px;
   margin-left: 10px;
 }
 .item-avatar {
-  display: flex;
-  justify-content: center;
   width: 40px;
   height: 40px;
-  margin-top: 10px;
 }
 </style>

@@ -1,10 +1,6 @@
 <template>
 <li class="left-chat-li">
-  <div class="item-avatar">
-    <svg class="icon" aria-hidden="true">
-      <use xlink:href="#icon-touxiang" />
-    </svg>
-  </div>
+  <img class="item-avatar" src="@/assets/iconfont/avatar.png"/>
   <label class="left-chat-content">你好</label>
 </li>
 </template>

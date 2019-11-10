@@ -3,9 +3,9 @@
     <div class="chatlist-search">
       <SearchWindow/>
     </div>
-    <div class="item-devider" />
-    <div>
-      <ul>
+    <div class="layout-devider" />
+    <div class="chatlist-content">
+      <ul class="chatlist-ul">
         <li class="chat-list" v-bind:key="index"  v-for="(chat, index) in chatList" >
           <ChatListItem v-bind:chat="chat"/>
         </li>
@@ -64,9 +64,25 @@ export default {
   border-width: 0px;
   height: 50px;
 }
+ul {
+  overflow-y:scroll;
+} 
 ul, li {
   list-style-type: none;
   margin: 0;
   padding: 0;
+}
+.chatlist-content {
+  height: 100%;
+}
+.chatlist-ul {
+  height: 100%;
+}
+.layout-devider {
+  width: 100%;
+  height: 1px;
+  background-color: gray;
+  margin-top: 10px;
+  opacity: 0.3;
 }
 </style>

@@ -11,3 +11,15 @@ export function chatList (chatListReqBo) {
     }
   })
 }
+
+export function chatRecord (chatRecordBo) {
+  let data = { userId: chatRecordBo.userId, friendId: chatRecordBo.friendId }
+  return request({
+    url: '/chatRecord',
+    data,
+    method: 'post',
+    headers: {
+      'token': chatRecordBo.token
+    }
+  })
+}

@@ -3,10 +3,11 @@
     <div class="chat-window-title">测试号</div>
     <div class="chat-window-divider" />
     <div class="chat-window-record">
-      <ul>
-        <LeftChatItem/>
-        <LeftChatItem/>
-        <RightChatItem/>
+      <ul class="chat-window-ul">
+        <li v-for="(record, i) in records" :key="i">
+          <LeftChatItem v-if="record.isMe == false" :msg="record.msg" />
+          <RightChatItem v-else :msg="record.msg"/>
+        </li>
       </ul>
     </div>
     <div class="chat-window-divider" />
@@ -26,6 +27,36 @@ export default {
     LeftChatItem,
     RightChatItem,
     ChatInputWindow
+  },
+  data() {
+    return {
+      records: []
+    }
+  },
+  computed: {
+    currentChatFriendId () {
+      return this.$store.state.user.currentChatFriendId
+    }
+  },
+  watch: {
+    currentChatFriendId (newFriendId, oldFriendId) {
+      console.log('ChatWindow: currentChatFriendId: ' + newFriendId)
+      const self = this
+      const chatRecordBo = { userId: this.$store.state.user.userId, friendId: newFriendId }
+      this.$store.dispatch("CHAT_RECORD", chatRecordBo)
+      .then(
+        () => {
+                    console.log('获取chat_record成功： ---》' )
+          self.records = self.$store.state.user.chatRecordMap.get(newFriendId)
+          console.log('获取chat_record成功： ' + self.records)
+        }
+      )
+      .catch(
+        () => {
+
+        }
+      )
+    }
   }
 };
 </script>
@@ -54,5 +85,9 @@ export default {
 .chat-window-input {
   background-color: red;
   flex: 1;
+}
+.chat-window-ul {
+  overflow-y:scroll;
+  height: 100%;
 }
 </style>

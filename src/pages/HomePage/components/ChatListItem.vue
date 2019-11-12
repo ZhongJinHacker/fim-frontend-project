@@ -1,6 +1,6 @@
 <template>
 <div class="chat-item-container">
-  <div class="detail-container">
+  <div class="detail-container" @click="onItemClick(chat.friendId)">
     <img class="item-avatar" src="@/assets/iconfont/avatar.png"/>
     <div class="item-detail">
       <div class="name">
@@ -18,7 +18,13 @@
 <script>
 export default {
 
-  props: ["chat"]
+  props: ["chat"],
+  methods: {
+    onItemClick(friendId) {
+      console.log('onItemClick: friendId: ' + friendId)
+      this.$store.dispatch("CHANGE_CHAT_FRIEND", friendId)
+    }
+  }
 }
 </script>
 

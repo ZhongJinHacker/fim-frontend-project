@@ -29,19 +29,19 @@ export default {
   data() {
     return {
       chatList: [
-        { userName: 'jim', lastMsg: '你好' },
-        { userName: 'jim', lastMsg: '你好' },
-        { userName: 'jim', lastMsg: '你好' },
-        { userName: 'jim', lastMsg: '你好' },
-        { userName: 'jim', lastMsg: '你好' },
-        { userName: 'jim', lastMsg: '你好' },
-        { userName: 'jim', lastMsg: '你好' }
+        { userName: 'jim', lastMsg: '你好', friendId: '1001' },
+        { userName: 'jim', lastMsg: '你好', friendId: '1002' },
+        { userName: 'jim', lastMsg: '你好', friendId: '1003' },
+        { userName: 'jim', lastMsg: '你好', friendId: '1004' },
+        { userName: 'jim', lastMsg: '你好', friendId: '1005' },
+        { userName: 'jim', lastMsg: '你好', friendId: '1006' },
+        { userName: 'jim', lastMsg: '你好', friendId: '1007' }
       ]
     }
   },
   async mounted() {
-    const userId = this.$store.state.user.userId
-    const token = this.$store.state.user.token
+    const userId = this.$store.state.login.userId
+    const token = this.$store.state.login.token
     const response = await chatList({ userId, token })
     this.chatList = response.obj.chatList
     console.log('data--> ' + this.chatList[0])
@@ -66,7 +66,7 @@ export default {
 }
 ul {
   overflow-y:scroll;
-} 
+}
 ul, li {
   list-style-type: none;
   margin: 0;

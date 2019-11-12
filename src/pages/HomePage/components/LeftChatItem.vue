@@ -1,15 +1,15 @@
 <template>
-<li class="left-chat-li">
+<div class="left-chat-li">
   <img class="item-avatar" src="@/assets/iconfont/avatar.png"/>
-  <label class="left-chat-content">你好</label>
-</li>
+  <label class="left-chat-content">{{ msg }}</label>
+</div>
 </template>
 
 <script>
 export default {
-  props: {
-
-  }
+  props: [
+    'msg'
+  ]
 }
 </script>
 

@@ -1,6 +1,6 @@
 <template>
   <div class="chat-window-container">
-    <div class="chat-window-title">测试号</div>
+    <div class="chat-window-title">{{ currentChatFriendNickName }}</div>
     <div class="chat-window-divider" />
     <div class="chat-window-record">
       <ul class="chat-window-ul">
@@ -36,6 +36,9 @@ export default {
   computed: {
     currentChatFriendId () {
       return this.$store.state.user.currentChatFriendId
+    },
+    currentChatFriendNickName () {
+      return this.$store.state.user.currentChatFriendName
     }
   },
   watch: {

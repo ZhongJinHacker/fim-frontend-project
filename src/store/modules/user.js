@@ -5,7 +5,8 @@ const user = {
 
   state: {
     chatRecordMap: new Map(),
-    currentChatFriendId: ''
+    currentChatFriendId: '',
+    currentChatFriendName: ''
   },
 
   mutations: {
@@ -14,8 +15,9 @@ const user = {
       const chatRecord = obj.chatRecord
       state.chatRecordMap.set(friendId, chatRecord)
     },
-    SET_CHAT_FRIEND: (state, friendId) => {
-      state.currentChatFriendId = friendId
+    SET_CHAT_FRIEND: (state, chatFriend) => {
+      state.currentChatFriendId = chatFriend.friendId
+      state.currentChatFriendName = chatFriend.userName
     }
   },
 
@@ -26,9 +28,9 @@ const user = {
       commit('SET_CHAT_REOCRD', obj)
     },
 
-    CHANGE_CHAT_FRIEND ({ commit }, friendId) {
-      console.log('CHANGE_CHAT_FRIEND: ' + friendId)
-      commit('SET_CHAT_FRIEND', friendId)
+    CHANGE_CHAT_FRIEND ({ commit }, chatFriend) {
+      console.log('CHANGE_CHAT_FRIEND: ' + chatFriend.friendId)
+      commit('SET_CHAT_FRIEND', chatFriend)
     }
   }
 }

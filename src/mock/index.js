@@ -13,3 +13,7 @@ Mock.mock('http://localhost:8080/chatList', 'post', () => {
 Mock.mock('http://localhost:8080/chatRecord', 'post', () => {
   return UserInfo.chatReordRes
 })
+
+Mock.mock('http://localhost:8080/sendMsg', 'post', () => {
+  return UserInfo.sendMsgRes
+})

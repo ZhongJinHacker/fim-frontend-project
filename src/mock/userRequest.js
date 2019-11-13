@@ -46,9 +46,16 @@ const chatReordRes = {
   }
 }
 
+const sendMsgRes = {
+  statusCode: '200',
+  message: '成功',
+  obj: null
+}
+
 const res = {
   chatListRes,
-  chatReordRes
+  chatReordRes,
+  sendMsgRes
 }
 
 export default res

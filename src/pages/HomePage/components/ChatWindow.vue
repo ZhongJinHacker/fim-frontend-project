@@ -3,7 +3,7 @@
     <div class="chat-window-title">{{ currentChatFriendNickName }}</div>
     <div class="chat-window-divider" />
     <div class="chat-window-record">
-      <ul class="chat-window-ul">
+      <ul ref='chatDetailList' class="chat-window-ul">
         <li v-for="(record, i) in records" :key="i">
           <LeftChatItem v-if="record.isMe == false" :msg="record.msg" />
           <RightChatItem v-else :msg="record.msg"/>
@@ -11,9 +11,8 @@
       </ul>
     </div>
     <div class="chat-window-divider" />
-    <!-- <div>输入框</div> -->
     <div class="chat-window-input">
-      <ChatInputWindow />
+      <ChatInputWindow @msgSend="onSendMsg" />
     </div>
   </div>
 </template>
@@ -45,13 +44,14 @@ export default {
     currentChatFriendId (newFriendId, oldFriendId) {
       console.log('ChatWindow: currentChatFriendId: ' + newFriendId)
       const self = this
-      const chatRecordBo = { userId: this.$store.state.user.userId, friendId: newFriendId }
+      const chatRecordBo = { userId: this.$store.state.login.userId, friendId: newFriendId }
       this.$store.dispatch("CHAT_RECORD", chatRecordBo)
       .then(
         () => {
-                    console.log('获取chat_record成功： ---》' )
+          console.log('获取chat_record成功： ---》' )
           self.records = self.$store.state.user.chatRecordMap.get(newFriendId)
           console.log('获取chat_record成功： ' + self.records)
+          self.listScrollBottom()
         }
       )
       .catch(
@@ -59,6 +59,17 @@ export default {
 
         }
       )
+    }
+  },
+  methods: {
+    onSendMsg() {
+      this.listScrollBottom()
+    },
+    listScrollBottom() {
+        this.$nextTick(() => { 
+          var divDom = this.$refs.chatDetailList;
+          divDom .scrollTop = divDom.scrollHeight;
+      })
     }
   }
 };

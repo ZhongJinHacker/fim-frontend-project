@@ -1,4 +1,4 @@
-import { chatRecord } from '@/api/userRequest'
+import { chatRecord, sendMsg } from '@/api/userRequest'
 import GlobalInfo from '../../global/GlobalInfo'
 
 const user = {
@@ -18,6 +18,10 @@ const user = {
     SET_CHAT_FRIEND: (state, chatFriend) => {
       state.currentChatFriendId = chatFriend.friendId
       state.currentChatFriendName = chatFriend.userName
+    },
+    ADD_SEND_CHAT_RECORD: (state, sendMsgBo) => {
+      var chatRecord = state.chatRecordMap.get(sendMsgBo.friendId)
+      chatRecord.push({ msg: sendMsgBo.msg, isMe: true })
     }
   },
 
@@ -29,8 +33,12 @@ const user = {
     },
 
     CHANGE_CHAT_FRIEND ({ commit }, chatFriend) {
-      console.log('CHANGE_CHAT_FRIEND: ' + chatFriend.friendId)
       commit('SET_CHAT_FRIEND', chatFriend)
+    },
+
+    async SEND_MSG ({ commit }, sendMsgBo) {
+      await sendMsg(sendMsgBo)
+      commit('ADD_SEND_CHAT_RECORD', sendMsgBo)
     }
   }
 }

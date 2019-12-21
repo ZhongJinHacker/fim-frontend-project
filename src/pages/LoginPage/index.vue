@@ -11,7 +11,7 @@
         </el-form-item>
         <el-form-item class="button-container">
           <el-button type="primary" :loading="loading" @click="clickLoginButton(userName, password)" >登录</el-button>
-          <el-button >注册</el-button>
+          <el-button @click="clickRegisterButton">注册</el-button>
         </el-form-item>
       </el-form>
     </div>
@@ -45,6 +45,9 @@ export default {
           console.log(err)
         }
       )
+    },
+    clickRegisterButton() {
+      this.$router.push({ path: '/register' })
     }
   }
 }

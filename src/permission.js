@@ -4,7 +4,7 @@ import 'nprogress/nprogress.css'// Progress 进度条样式
 import { Message } from 'element-ui'
 import GlobalInfo from './global/GlobalInfo'
 
-const whiteList = ['/login', '/authredirect']
+const whiteList = ['/login', '/authredirect', '/register']
 
 router.beforeEach((to, from, next) => {
   NProgress.start()
@@ -18,18 +18,20 @@ router.beforeEach((to, from, next) => {
   } else {
     console.log('from', from)
     console.log('to', to)
-    if (whiteList.indexOf(to.path) !== -1) { // 在免登录白名单，直接进入
+    // 在免登录白名单，直接进入
+    if (whiteList.indexOf(to.path) !== -1) {
       next()
     } else {
       Message.error('验证失败,请重新登录')
-      next('/login') // 否则全部重定向到登录页
-      NProgress.done() // router在hash模式下 手动改变hash 重定向回来 不会触发afterEach 暂时hack方案 ps：history模式下无问题，可删除该行！
+      // 否则全部重定向到登录页
+      next('/login')
+      NProgress.done()
     }
   }
 })
 
 router.afterEach(() => {
-  NProgress.done() // 结束Progress
+  NProgress.done()
 })
 
 function isLogin () {

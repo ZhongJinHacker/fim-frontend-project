@@ -31,7 +31,7 @@ export default {
     clickLoginButton(userName, password) {
       const that = this
       console.log('userName: ' + userName + '  password: ' + password)
-      var loginModel = { username: userName, pass: password }
+      var loginModel = { username: userName, password: password }
       that.$store.dispatch('Login', loginModel)
       .then(
         () => {

@@ -31,7 +31,7 @@ const userLogin = {
   actions: {
     async Login ({ commit }, userInfo) {
       const username = userInfo.username.trim()
-      const password = userInfo.pass.trim()
+      const password = userInfo.password.trim()
       const response = await login(username, password)
       const obj = response.obj
       commit('SET_USER_INFO', obj)

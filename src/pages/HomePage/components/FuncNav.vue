@@ -1,10 +1,17 @@
 <template>
   <div class="tab-container">
-    <div class="avatar">
-      <svg class="icon" aria-hidden="true">
-        <use xlink:href="#icon-touxiang" />
-      </svg>
+    <div class="nav-item">
+      <img class="nav-avatar-img" src="@/assets/iconfont/avatar.png"/>
     </div>
+
+    <div class="nav-item" @click="onChatClick">
+      <img class="nav-chat-img" src="@/assets/iconfont/chat.png"/>
+    </div>
+
+    <div class="nav-item" @click="onContactClick">
+      <img class="nav-contact-img" src="@/assets/iconfont/contact.png"/>
+    </div>
+
     <div class="menu">
       <svg class="icon" aria-hidden="true">
         <use xlink:href="#icon-menu-two" />
@@ -15,7 +22,20 @@
 
 <script>
 export default {
-  name: 'FuncNav'
+  name: 'FuncNav',
+  data() {
+    return {
+
+    };
+  },
+  methods: {
+    onChatClick() {
+      console.log('nav chat click')
+    },
+    onContactClick() {
+      console.log('nav contact click')
+    }
+  }
 }
 </script>
 
@@ -30,15 +50,27 @@ export default {
   flex-direction: column;
   align-items: center;
 }
-.avatar {
+.nav-item {
   display: flex;
-  width: 50px;
-  height: 50px;
+  width: 45px;
+  height: 45px;
   margin-top: 10px;
+}
+.nav-avatar-img {
+  width: 100%;
+  height: 100%;
+}
+.nav-chat-img {
+  width: 100%;
+  height: 100%;
+}
+.nav-contact-img {
+  width: 100%;
+  height: 100%;
 }
 .menu {
   position: relative;
-  bottom: -400px;
+  bottom: -300px;
   margin-left: auto;
   margin-right: auto;
   display: flex;

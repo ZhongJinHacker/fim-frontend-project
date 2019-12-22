@@ -3,24 +3,20 @@
     <div class="home-container">
       <FuncNav/>
       <div class= "vertical-line" />
-      <ChatList/>
-      <div class= "vertical-line" />
-      <ChatWindow/>
+      <ChatComponent/>
     </div>
   </div>
 </template>
 
 <script>
 import FuncNav from './components/FuncNav'
-import ChatList from './components/ChatList'
-import ChatWindow from './components/ChatWindow'
+import ChatComponent from './components/ChatComponent/index'
 
 export default {
   name: "HomePage",
   components: {
     FuncNav,
-    ChatList,
-    ChatWindow
+    ChatComponent
   },
   data() {
     return {

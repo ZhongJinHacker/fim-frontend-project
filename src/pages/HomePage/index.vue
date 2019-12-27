@@ -1,10 +1,10 @@
 <template>
   <div class="page-container">
     <div class="home-container" >
-      <FuncNav @changeComponent="changeComponentClick"/>
+      <FuncNav @changeToChat="changeToChat" @changeToContact="changeToContact"/>
       <div class= "vertical-line" />
       <ChatComponent v-if="isShowChat" />
-      <ContactComponent v-else />
+      <ContactComponent v-if="isShowContact" />
     </div>
   </div>
 </template>
@@ -61,8 +61,13 @@ export default {
     closeWebSocket() {
       this.webSocket.close()
     },
-    changeComponentClick() {
-      this.isShowChat = !this.isShowChat
+    changeToChat() {
+      this.isShowChat = true
+      this.isShowContact = false
+    },
+    changeToContact() {
+      this.isShowChat = false
+      this.isShowContact = true
     }
     
   },

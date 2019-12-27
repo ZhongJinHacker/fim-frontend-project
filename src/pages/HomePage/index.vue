@@ -1,9 +1,10 @@
 <template>
   <div class="page-container">
-    <div class="home-container">
-      <FuncNav/>
+    <div class="home-container" >
+      <FuncNav @changeComponent="changeComponentClick"/>
       <div class= "vertical-line" />
-      <ChatComponent/>
+      <ChatComponent v-if="isShowChat" />
+      <ContactComponent v-else />
     </div>
   </div>
 </template>
@@ -11,16 +12,19 @@
 <script>
 import FuncNav from './components/FuncNav'
 import ChatComponent from './components/ChatComponent/index'
+import ContactComponent from './components/ContactComponent/index'
 
 export default {
   name: "HomePage",
   components: {
     FuncNav,
-    ChatComponent
+    ChatComponent,
+    ContactComponent
   },
   data() {
     return {
-      webSocket: null
+      webSocket: null,
+      isShowChat: false
     };
   },
   methods: {
@@ -56,6 +60,9 @@ export default {
     },
     closeWebSocket() {
       this.webSocket.close()
+    },
+    changeComponentClick() {
+      this.isShowChat = !this.isShowChat
     }
     
   },

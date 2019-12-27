@@ -29,13 +29,6 @@ export default {
   data() {
     return {
       chatList: [
-        { userName: 'jim', lastMsg: '你好', friendId: '1001' },
-        { userName: 'jim', lastMsg: '你好', friendId: '1002' },
-        { userName: 'jim', lastMsg: '你好', friendId: '1003' },
-        { userName: 'jim', lastMsg: '你好', friendId: '1004' },
-        { userName: 'jim', lastMsg: '你好', friendId: '1005' },
-        { userName: 'jim', lastMsg: '你好', friendId: '1006' },
-        { userName: 'jim', lastMsg: '你好', friendId: '1007' }
       ]
     }
   },

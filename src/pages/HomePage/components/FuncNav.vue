@@ -31,9 +31,11 @@ export default {
   methods: {
     onChatClick() {
       console.log('nav chat click')
+      this.$emit('changeComponent')
     },
     onContactClick() {
       console.log('nav contact click')
+      this.$emit('changeComponent')
     }
   }
 }

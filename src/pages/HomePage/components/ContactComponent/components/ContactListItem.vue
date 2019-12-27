@@ -1,13 +1,13 @@
 <template>
-  <div class="detail-container" @click="onItemClick(chat)">
+<div class="contact-item-container">
+  <div class="contact-item-detail-container" @click="onItemClick(chat)">
     <img class="item-avatar" src="@/assets/iconfont/avatar.png"/>
-    <div class="item-detail">
-      <div class="name">
-        {{ contact.userName }}
-      </div>
+    <div class="item-name">
+      {{ contact.userName }}
     </div>
-    <div class="item-devider" />
   </div>
+  <div class="item-devider" />
+</div>
 </template>
 
 <script>
@@ -17,25 +17,25 @@ export default {
 </script>
 
 <style lang="scss" rel="stylesheet/scss">
-.chat-item-container {
+.contact-item-container {
   display: flex;
   flex-direction: column;
   height: 60px;
   width: 100%;
 }
-.detail-container {
+.contact-item-detail-container {
   display: flex;
   flex-direction: row;
   height: 50px;
   margin-top: 10px;
   margin-left: 5px;
 }
-.name {
-  font-size: 16px
+.item-name {
+  font-size: 16px;
+  margin-left: 10px;
+  margin-top: 9px;
 }
-.msg {
-  font-size: 12px
-}
+
 .item-devider {
   width: 98%;
   height: 1px;
@@ -44,11 +44,7 @@ export default {
   margin-left: 2px;
   margin-right: 2px;
 }
-.item-detail {
-  display: flex;
-  flex-direction: column;
-  margin-left: 10px;
-}
+
 .item-avatar {
   width: 40px;
   height: 40px;

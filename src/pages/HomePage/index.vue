@@ -24,7 +24,8 @@ export default {
   data() {
     return {
       webSocket: null,
-      isShowChat: false
+      isShowChat: false,
+      isShowContact: true
     };
   },
   methods: {

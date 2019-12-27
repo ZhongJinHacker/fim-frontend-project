@@ -18,7 +18,6 @@
 import ChatListItem from './ChatListItem'
 import SearchWindow from './SearchWindow'
 import { chatList } from '@/api/userRequest'
- 
 
 export default {
 
@@ -55,7 +54,7 @@ export default {
 }
 .chatlist-search {
   border-width: 0px;
-  height: 50px;
+  height: 10%;
 }
 ul {
   overflow-y:scroll;
@@ -66,7 +65,7 @@ ul, li {
   padding: 0;
 }
 .chatlist-content {
-  height: 100%;
+  height: 90%;
 }
 .chatlist-ul {
   height: 100%;

@@ -17,6 +17,7 @@
 <script>
 import ContactSearchWindow from './ContactSearchWindow'
 import ContactListItem from './ContactListItem'
+import { contactList } from '@/api/userRequest'
 
 export default {
   name: "ContactList",
@@ -29,6 +30,13 @@ export default {
       contactList: [
       ]
     }
+  },
+  async mounted() {
+    const userId = this.$store.state.login.userId
+    const token = this.$store.state.login.token
+    const response = await contactList({ userId, token })
+    this.contactList = response.obj.contactList
+    console.log('contact data--> ' + this.contactList[0])
   }
 }
 </script>
@@ -46,7 +54,7 @@ export default {
 }
 .contactlist-search {
   border-width: 0px;
-  height: 50px;
+  height: 10%;
 }
 ul {
   overflow-y:scroll;
@@ -57,7 +65,7 @@ ul, li {
   padding: 0;
 }
 .contactlist-content {
-  height: 100%;
+  height: 90%;
 }
 .contactlist-ul {
   height: 100%;

@@ -52,10 +52,38 @@ const sendMsgRes = {
   obj: null
 }
 
+const contactListRes = {
+  statusCode: '200',
+  message: '成功',
+  obj: {
+    contactList: [
+      { userName: 'tom' },
+      { userName: 'tom1' },
+      { userName: 'jim111' },
+      { userName: 'tom' },
+      { userName: 'jim222' },
+      { userName: 'tom' },
+      { userName: 'jim333' },
+      { userName: 'jim4444' },
+      { userName: 'jim3555' },
+      { userName: 'jim666' },
+      { userName: 'jim777' },
+      { userName: 'jim888' },
+      { userName: 'jim9999' },
+      { userName: 'jim1111333' },
+      { userName: 'jim22223233' },
+      { userName: 'jim4444333' },
+      { userName: 'jim5555333' },
+      { userName: 'jim6666333' }
+    ]
+  }
+}
+
 const res = {
   chatListRes,
   chatReordRes,
-  sendMsgRes
+  sendMsgRes,
+  contactListRes
 }
 
 export default res

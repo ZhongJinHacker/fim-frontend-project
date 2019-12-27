@@ -1,30 +1,18 @@
 <template>
-<div class="chat-item-container">
   <div class="detail-container" @click="onItemClick(chat)">
     <img class="item-avatar" src="@/assets/iconfont/avatar.png"/>
     <div class="item-detail">
       <div class="name">
-        {{ chat.userName }}
-      </div>
-      <div class="msg">
-        {{ chat.lastMsg }}
+        {{ contact.userName }}
       </div>
     </div>
+    <div class="item-devider" />
   </div>
-  <div class="item-devider" />
-</div>
 </template>
 
 <script>
 export default {
-
-  props: ["chat"],
-  methods: {
-    onItemClick(chat) {
-      console.log('onItemClick: friendId: ' + chat.friendId)
-      this.$store.dispatch("CHANGE_CHAT_FRIEND", { userName: chat.userName, friendId: chat.friendId })
-    }
-  }
+  props: ["contact"],
 }
 </script>
 
@@ -65,4 +53,5 @@ export default {
   width: 40px;
   height: 40px;
 }
+
 </style>

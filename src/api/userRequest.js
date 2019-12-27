@@ -35,3 +35,15 @@ export function sendMsg (sendMsgBo) {
     }
   })
 }
+
+export function contactList (contactListReqBo) {
+  let data = { 'userId': contactListReqBo.userId }
+  return request({
+    url: '/contactList',
+    data,
+    method: 'post',
+    headers: {
+      'token': contactListReqBo.token
+    }
+  })
+}

@@ -1,6 +1,6 @@
 <template>
 <div class="contact-item-container">
-  <div class="contact-item-detail-container" @click="onItemClick(chat)">
+  <div class="contact-item-detail-container" @click="onItemClick(contact)">
     <img class="item-avatar" src="@/assets/iconfont/avatar.png"/>
     <div class="item-name">
       {{ contact.userName }}
@@ -13,6 +13,12 @@
 <script>
 export default {
   props: ["contact"],
+  methods: {
+    onItemClick(contact) {
+      console.log('onItemClick: friendId: ' + contact.userName)
+      this.$store.dispatch("SHOW_CONTACT", { userName: contact.userName, id: contact.id })
+    }
+  }
 }
 </script>
 

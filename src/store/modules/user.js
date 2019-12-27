@@ -1,5 +1,4 @@
 import { chatRecord, sendMsg } from '@/api/userRequest'
-import GlobalInfo from '../../global/GlobalInfo'
 
 const user = {
 

@@ -76,7 +76,10 @@ export default {
     }
   },
   mounted () {
-
+    if (this.currentChatFriendId === null || this.currentChatFriendId === '') {
+      return
+    }
+    this.getChatRecord(this.currentChatFriendId)
   }
 }
 </script>

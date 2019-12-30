@@ -13,7 +13,7 @@
 import FuncNav from './components/FuncNav'
 import ChatComponent from './components/ChatComponent/index'
 import ContactComponent from './components/ContactComponent/index'
-import { SHOW_CONTACT_COMPONENT, SHOW_CHAT_COMPONENT } from '@/global/Global.js'
+import { SHOW_CONTACT_COMPONENT, SHOW_CHAT_COMPONENT, DEFAULT_SHOW_COMPONENT } from '@/global/Global.js'
 
 export default {
   name: 'HomePage',
@@ -25,8 +25,8 @@ export default {
   data () {
     return {
       webSocket: null,
-      isShowChat: false,
-      isShowContact: true
+      isShowChat: DEFAULT_SHOW_COMPONENT === SHOW_CHAT_COMPONENT,
+      isShowContact: DEFAULT_SHOW_COMPONENT === SHOW_CONTACT_COMPONENT
     }
   },
   computed: {
@@ -36,7 +36,6 @@ export default {
   },
   watch: {
     showComponent (newVal, oldVal) {
-      console.log('newVal')
       if (newVal === SHOW_CONTACT_COMPONENT) {
         this.isShowChat = false
         this.isShowContact = true

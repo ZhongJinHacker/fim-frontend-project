@@ -1,9 +1,9 @@
-import { SHOW_CONTACT_COMPONENT, SHOW_CHAT_COMPONENT } from '@/global/Global.js'
+import { SHOW_CONTACT_COMPONENT, SHOW_CHAT_COMPONENT, DEFAULT_SHOW_COMPONENT } from '@/global/Global.js'
 
 const home = {
 
   state: {
-    showComponent: SHOW_CONTACT_COMPONENT
+    showComponent: DEFAULT_SHOW_COMPONENT
   },
 
   mutations: {

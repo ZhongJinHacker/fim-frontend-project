@@ -15,23 +15,23 @@ import ChatComponent from './components/ChatComponent/index'
 import ContactComponent from './components/ContactComponent/index'
 
 export default {
-  name: "HomePage",
+  name: 'HomePage',
   components: {
     FuncNav,
     ChatComponent,
     ContactComponent
   },
-  data() {
+  data () {
     return {
       webSocket: null,
       isShowChat: false,
       isShowContact: true
-    };
+    }
   },
   methods: {
-    initWebSocket() {
-      if (typeof(WebSocket) === "undefined") {
-        alert("您的浏览器不支持socket")
+    initWebSocket () {
+      if (typeof (WebSocket) === 'undefined') {
+        alert('您的浏览器不支持socket')
       } else {
         const URL = 'ws://echo.websocket.org'
         this.webSocket = new WebSocket(URL)
@@ -41,41 +41,53 @@ export default {
         this.webSocket.onclose = this.webSocketClose
       }
     },
-    webSocketOnOpen(){ // 连接建立之后执行send方法发送数据
-      let actions = {"test":"12345"};
+    // 连接建立之后执行send方法发送数据
+    webSocketOnOpen () {
+      let actions = { 'test': '12345' }
       this.webSocketSend(JSON.stringify(actions))
     },
-    webSocketOnError(){ // 连接建立失败重连
+    // 连接建立失败重连
+    webSocketOnError () {
       this.initWebSocket()
     },
-    webSocketOnMessage(e){ // 数据接收
+    // 数据接收
+    webSocketOnMessage (e) {
       const redata = JSON.parse(e.data)
       console.log('websocket: onMessage: ' + JSON.stringify(redata))
     },
-    webSocketSend(Data){ // 数据发送
+    // 数据发送
+    webSocketSend (Data) {
       this.webSocket.send(Data)
     },
-    webSocketClose(e){  // 关闭
-      console.log('断开连接',e)
+    // 关闭
+    webSocketClose (e) {
+      console.log('断开连接', e)
       this.webSocket.close()
     },
-    closeWebSocket() {
+    closeWebSocket () {
       this.webSocket.close()
     },
-    changeToChat() {
+
+    /**
+     * 显示聊天界面
+     */
+    changeToChat () {
       this.isShowChat = true
       this.isShowContact = false
     },
-    changeToContact() {
+
+    /**
+     * 显示联系人界面
+     */
+    changeToContact () {
       this.isShowChat = false
       this.isShowContact = true
     }
-    
   },
-  created: function() {
+  created: function () {
     this.initWebSocket()
   },
-  destroyed: function() {
+  destroyed: function () {
     this.closeWebSocket()
   }
 };

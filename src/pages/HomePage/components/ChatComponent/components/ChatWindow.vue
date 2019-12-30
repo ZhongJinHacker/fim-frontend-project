@@ -43,22 +43,7 @@ export default {
   watch: {
     currentChatFriendId (newFriendId, oldFriendId) {
       console.log('ChatWindow: currentChatFriendId: ' + newFriendId)
-      const self = this
-      const chatRecordBo = { userId: this.$store.state.login.userId, friendId: newFriendId }
-      this.$store.dispatch('CHAT_RECORD', chatRecordBo)
-        .then(
-          () => {
-            console.log('获取chat_record成功： ---》')
-            self.records = self.$store.state.user.chatRecordMap.get(newFriendId)
-            console.log('获取chat_record成功： ' + self.records)
-            self.listScrollBottom()
-          }
-        )
-        .catch(
-          () => {
-
-          }
-        )
+      this.getChatRecord(newFriendId)
     }
   },
   methods: {
@@ -70,7 +55,28 @@ export default {
         var divDom = this.$refs.chatDetailList
         divDom.scrollTop = divDom.scrollHeight
       })
+    },
+    async getChatRecord (friendId) {
+      const self = this
+      const chatRecordBo = { userId: this.$store.state.login.userId, friendId: friendId }
+      this.$store.dispatch('CHAT_RECORD', chatRecordBo)
+        .then(
+          () => {
+            console.log('获取chat_record成功： ---》')
+            self.records = self.$store.state.user.chatRecordMap.get(friendId)
+            console.log('获取chat_record成功： ' + self.records)
+            self.listScrollBottom()
+          }
+        )
+        .catch(
+          () => {
+
+          }
+        )
     }
+  },
+  mounted () {
+
   }
 }
 </script>

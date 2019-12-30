@@ -4,6 +4,7 @@ import login from './modules/login'
 import user from './modules/user'
 import register from './modules/register'
 import contact from './modules/contact'
+import home from './modules/home'
 
 Vue.use(Vuex)
 
@@ -12,7 +13,8 @@ const store = new Vuex.Store({
     login,
     user,
     register,
-    contact
+    contact,
+    home
   }
 })
 

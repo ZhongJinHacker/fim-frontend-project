@@ -13,6 +13,7 @@
 import FuncNav from './components/FuncNav'
 import ChatComponent from './components/ChatComponent/index'
 import ContactComponent from './components/ContactComponent/index'
+import { SHOW_CONTACT_COMPONENT, SHOW_CHAT_COMPONENT } from '@/global/Global.js'
 
 export default {
   name: 'HomePage',
@@ -26,6 +27,23 @@ export default {
       webSocket: null,
       isShowChat: false,
       isShowContact: true
+    }
+  },
+  computed: {
+    showComponent () {
+      return this.$store.state.home.showComponent
+    }
+  },
+  watch: {
+    showComponent (newVal, oldVal) {
+      console.log('newVal')
+      if (newVal === SHOW_CONTACT_COMPONENT) {
+        this.isShowChat = false
+        this.isShowContact = true
+      } else if (newVal === SHOW_CHAT_COMPONENT) {
+        this.isShowChat = true
+        this.isShowContact = false
+      }
     }
   },
   methods: {

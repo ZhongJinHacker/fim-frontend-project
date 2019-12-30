@@ -12,7 +12,8 @@
 export default {
   methods: {
     onGotoChatClick () {
-      //TODO:
+      const contactBo = { contactId: this.currentContactId }
+      this.$store.dispatch('GOTO_CHAT', contactBo)
       console.log('去和' + this.currentContactId + ' 聊天')
     }
   },

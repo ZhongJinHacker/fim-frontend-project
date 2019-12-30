@@ -19,10 +19,10 @@ export default {
       const currentFriendId = this.$store.state.user.currentChatFriendId
       const sendMsgBo = { userId: this.$store.state.login.userId, friendId: currentFriendId, msg: this.msg }
       this.$store.dispatch('SEND_MSG', sendMsgBo)
-      .then(() => {
-        self.msg =''
-        self.$emit('msgSend');
-      })
+        .then(() => {
+          self.msg = ''
+          self.$emit('msgSend')
+        })
       this.msg = ''
     }
   }

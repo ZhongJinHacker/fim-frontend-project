@@ -27,7 +27,7 @@ export default {
     RightChatItem,
     ChatInputWindow
   },
-  data() {
+  data () {
     return {
       records: []
     }
@@ -45,34 +45,34 @@ export default {
       console.log('ChatWindow: currentChatFriendId: ' + newFriendId)
       const self = this
       const chatRecordBo = { userId: this.$store.state.login.userId, friendId: newFriendId }
-      this.$store.dispatch("CHAT_RECORD", chatRecordBo)
-      .then(
-        () => {
-          console.log('获取chat_record成功： ---》' )
-          self.records = self.$store.state.user.chatRecordMap.get(newFriendId)
-          console.log('获取chat_record成功： ' + self.records)
-          self.listScrollBottom()
-        }
-      )
-      .catch(
-        () => {
+      this.$store.dispatch('CHAT_RECORD', chatRecordBo)
+        .then(
+          () => {
+            console.log('获取chat_record成功： ---》')
+            self.records = self.$store.state.user.chatRecordMap.get(newFriendId)
+            console.log('获取chat_record成功： ' + self.records)
+            self.listScrollBottom()
+          }
+        )
+        .catch(
+          () => {
 
-        }
-      )
+          }
+        )
     }
   },
   methods: {
-    onSendMsg() {
+    onSendMsg () {
       this.listScrollBottom()
     },
-    listScrollBottom() {
-        this.$nextTick(() => { 
-          var divDom = this.$refs.chatDetailList;
-          divDom .scrollTop = divDom.scrollHeight;
+    listScrollBottom () {
+      this.$nextTick(() => {
+        var divDom = this.$refs.chatDetailList
+        divDom.scrollTop = divDom.scrollHeight
       })
     }
   }
-};
+}
 </script>
 
 <style lang="scss" rel="stylesheet/scss">

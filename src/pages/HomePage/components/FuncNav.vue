@@ -31,11 +31,13 @@ export default {
   methods: {
     onChatClick() {
       console.log('nav chat click')
-      this.$emit('changeToChat')
+      // this.$emit('changeToChat')
+      this.$store.dispatch('GOTO_CHAT', null)
     },
     onContactClick() {
       console.log('nav contact click')
-      this.$emit('changeToContact')
+      //this.$emit('changeToContact')
+      this.$store.dispatch('GOTO_CONTACT', null)
     }
   }
 }

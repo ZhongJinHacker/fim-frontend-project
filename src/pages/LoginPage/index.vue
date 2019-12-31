@@ -1,5 +1,5 @@
 <template>
-  <div class="page-container"> 
+  <div class="page-container">
     <div class="login-container">
       <h3 class="title">FIM</h3>
       <el-form status-icon  class="item-container">
@@ -28,25 +28,25 @@ export default {
     }
   },
   methods: {
-    clickLoginButton(userName, password) {
+    clickLoginButton (userName, password) {
       const that = this
       console.log('userName: ' + userName + '  password: ' + password)
       var loginModel = { username: userName, password: password }
       that.$store.dispatch('Login', loginModel)
-      .then(
-        () => {
-          that.loading = false
-          that.$router.push({ path: '/' })
-        }
-      )
-      .catch(
-        (err) => {
-          that.loading = false
-          console.log(err)
-        }
-      )
+        .then(
+          () => {
+            that.loading = false
+            that.$router.push({ path: '/' })
+          }
+        )
+        .catch(
+          (err) => {
+            that.loading = false
+            console.log(err)
+          }
+        )
     },
-    clickRegisterButton() {
+    clickRegisterButton () {
       this.$router.push({ path: '/register' })
     }
   }

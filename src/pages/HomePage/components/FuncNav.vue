@@ -23,20 +23,18 @@
 <script>
 export default {
   name: 'FuncNav',
-  data() {
+  data () {
     return {
 
-    };
+    }
   },
   methods: {
-    onChatClick() {
+    onChatClick () {
       console.log('nav chat click')
-      // this.$emit('changeToChat')
       this.$store.dispatch('GOTO_CHAT', null)
     },
-    onContactClick() {
+    onContactClick () {
       console.log('nav contact click')
-      //this.$emit('changeToContact')
       this.$store.dispatch('GOTO_CONTACT', null)
     }
   }

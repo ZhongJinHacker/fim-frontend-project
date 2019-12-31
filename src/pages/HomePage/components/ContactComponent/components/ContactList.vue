@@ -20,18 +20,18 @@ import ContactListItem from './ContactListItem'
 import { contactList } from '@/api/userRequest'
 
 export default {
-  name: "ContactList",
+  name: 'ContactList',
   components: {
     ContactSearchWindow,
     ContactListItem
   },
-  data() {
+  data () {
     return {
       contactList: [
       ]
     }
   },
-  async mounted() {
+  async mounted () {
     const userId = this.$store.state.login.userId
     const token = this.$store.state.login.token
     const response = await contactList({ userId, token })

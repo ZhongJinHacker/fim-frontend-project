@@ -12,11 +12,11 @@
 
 <script>
 export default {
-  props: ["contact"],
+  props: ['contact'],
   methods: {
-    onItemClick(contact) {
+    onItemClick (contact) {
       console.log('onItemClick: friendId: ' + contact.userName)
-      this.$store.dispatch("SHOW_CONTACT", { userName: contact.userName, id: contact.id })
+      this.$store.dispatch('SHOW_CONTACT', { userName: contact.userName, id: contact.id })
     }
   }
 }

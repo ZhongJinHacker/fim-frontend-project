@@ -28,7 +28,7 @@ const PASSWORD_MIN_LEN = 6
 
 export default {
 
-  data() {
+  data () {
     return {
       userName: '',
       password: '',
@@ -37,7 +37,7 @@ export default {
     }
   },
   methods: {
-    clickRegisterButton() {
+    clickRegisterButton () {
       if (this.userName.length < USERNAME_MIN_LEN) {
         Message.error('账号名不得小于' + USERNAME_MIN_LEN + '位数')
         return
@@ -54,19 +54,19 @@ export default {
       const that = this
       var registerModel = { username: this.userName, password: this.password }
       that.$store.dispatch('register', registerModel)
-      .then(
-        () => {
-          that.loading = false
-          Message.success('注册成功')
-          that.$router.push({ path: '/login' })
-        }
-      )
-      .catch(
-        (err) => {
-          that.loading = false
-          console.log(err)
-        }
-      )
+        .then(
+          () => {
+            that.loading = false
+            Message.success('注册成功')
+            that.$router.push({ path: '/login' })
+          }
+        )
+        .catch(
+          (err) => {
+            that.loading = false
+            console.log(err)
+          }
+        )
     }
   }
 }

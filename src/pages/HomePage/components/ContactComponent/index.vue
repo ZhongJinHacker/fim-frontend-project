@@ -11,11 +11,11 @@ import ContactList from './components/ContactList'
 import ContactDetailWindow from './components/ContactDetailWindow'
 
 export default {
-  name: "ContactComponent",
+  name: 'ContactComponent',
   components: {
     ContactList,
     ContactDetailWindow
-  },
+  }
 }
 </script>
 

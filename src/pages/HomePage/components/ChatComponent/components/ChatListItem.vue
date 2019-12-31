@@ -18,11 +18,11 @@
 <script>
 export default {
 
-  props: ["chat"],
+  props: ['chat'],
   methods: {
-    onItemClick(chat) {
+    onItemClick (chat) {
       console.log('onItemClick: friendId: ' + chat.friendId)
-      this.$store.dispatch("CHANGE_CHAT_FRIEND", { userName: chat.userName, friendId: chat.friendId })
+      this.$store.dispatch('CHANGE_CHAT_FRIEND', { userName: chat.userName, friendId: chat.friendId })
     }
   }
 }

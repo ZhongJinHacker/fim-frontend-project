@@ -3,26 +3,28 @@ import LoginInfo from './login'
 import UserInfo from './userRequest'
 import RegisterInfo from './register'
 
-Mock.mock('http://localhost:8080/login', 'post', () => {
+const DOMAIN = ''
+
+Mock.mock(`${DOMAIN}/login`, 'post', () => {
   return LoginInfo.loginRes
 })
 
-Mock.mock('http://localhost:8080/register', 'post', () => {
+Mock.mock(`${DOMAIN}/register`, 'post', () => {
   return RegisterInfo.registerRes
 })
 
-Mock.mock('http://localhost:8080/chatList', 'post', () => {
+Mock.mock(`${DOMAIN}/chatList`, 'post', () => {
   return UserInfo.chatListRes
 })
 
-Mock.mock('http://localhost:8080/chatRecord', 'post', () => {
+Mock.mock(`${DOMAIN}/chatRecord`, 'post', () => {
   return UserInfo.chatReordRes
 })
 
-Mock.mock('http://localhost:8080/sendMsg', 'post', () => {
+Mock.mock(`${DOMAIN}/sendMsg`, 'post', () => {
   return UserInfo.sendMsgRes
 })
 
-Mock.mock('http://localhost:8080/contactList', 'post', () => {
+Mock.mock(`${DOMAIN}/contactList`, 'post', () => {
   return UserInfo.contactListRes
 })

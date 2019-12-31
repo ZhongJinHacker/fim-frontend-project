@@ -10,7 +10,14 @@ module.exports = {
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    proxyTable: {},
+    proxyTable: {
+      "/": {
+        // node代理转发的地址修改这里
+        target: "http://100.118.67.43:8080",
+        changeOrigin: true,
+        pathRewrite: {}
+      }
+    },
 
     // Various Dev Server settings
     host: 'localhost', // can be overwritten by process.env.HOST

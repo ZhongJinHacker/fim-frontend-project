@@ -5,7 +5,6 @@ import { getToken } from '@/utils/auth'
 
 const axiosRequest = axios.create({
   baseURL: 'http://localhost:8080/',
-  //baseURL: process.env.VUE_APP_BASE_API,
   timeout: 5000
 })
 

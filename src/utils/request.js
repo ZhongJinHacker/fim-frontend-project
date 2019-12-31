@@ -5,7 +5,8 @@ import { getToken } from '@/utils/auth'
 
 const axiosRequest = axios.create({
   baseURL: 'http://localhost:8080/',
-  timeout: 15000
+  //baseURL: process.env.VUE_APP_BASE_API,
+  timeout: 5000
 })
 
 // request拦截器
@@ -24,7 +25,6 @@ axiosRequest.interceptors.request.use(config => {
 // respone拦截器
 axiosRequest.interceptors.response.use(
   response => {
-    //TODO: 以后再加都东西
     return response.data
   },
   error => {

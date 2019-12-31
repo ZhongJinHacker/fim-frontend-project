@@ -25,13 +25,13 @@ export default {
     ChatListItem,
     SearchWindow
   },
-  data() {
+  data () {
     return {
       chatList: [
       ]
     }
   },
-  async mounted() {
+  async mounted () {
     const userId = this.$store.state.login.userId
     const token = this.$store.state.login.token
     const response = await chatList({ userId, token })

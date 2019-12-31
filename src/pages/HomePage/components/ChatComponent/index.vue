@@ -11,7 +11,7 @@ import ChatList from './components/ChatList'
 import ChatWindow from './components/ChatWindow'
 
 export default {
-  name: "ChatComponent",
+  name: 'ChatComponent',
   components: {
     ChatList,
     ChatWindow

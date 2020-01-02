@@ -12,6 +12,15 @@ export default {
     return {
       addContactId: ''
     }
+  },
+  methods: {
+    addContact () {
+      console.log('addContactId: ' + this.addContactId)
+      this.$store.dispatch('ADD_CONTACT', { addContactId: this.addContactId })
+        .then(() => {
+          console.log('ContactAddWindow addContact success. ')
+        })
+    }
   }
 }
 </script>

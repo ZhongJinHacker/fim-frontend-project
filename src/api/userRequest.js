@@ -47,3 +47,15 @@ export function contactList (contactListReqBo) {
     }
   })
 }
+
+export function addContact (contact) {
+  let data = { 'contactId': contact.contactId }
+  return request({
+    url: '/addContact',
+    data,
+    method: 'post',
+    headers: {
+      'token': contact.token
+    }
+  })
+}

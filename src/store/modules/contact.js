@@ -1,3 +1,4 @@
+import { addContact } from '@/api/userRequest'
 
 const contact = {
 
@@ -16,6 +17,9 @@ const contact = {
   actions: {
     SHOW_CONTACT: ({ commit }, contact) => {
       commit('SET_CONTACT_DETAIL', contact)
+    },
+    async ADD_CONTACT ({ commit }, contact) {
+      await addContact(contact)
     }
   }
 

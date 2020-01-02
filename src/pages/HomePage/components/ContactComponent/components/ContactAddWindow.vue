@@ -1,13 +1,18 @@
 <template>
   <div class="search-container">
-    <i class="search-i el-icon-search" />
-    <input style="resize:none;outline:none;" class="search-input" />
+    <input style="resize:none;outline:none;" class="search-input" type="text" v-model="addContactId" />
+    <img class="contact-search_img" src="@/assets/iconfont/add.png" @click="addContact" />
   </div>
 </template>
 
 <script>
 export default {
-
+  name: 'ContactAddWindow',
+  data () {
+    return {
+      addContactId: ''
+    }
+  }
 }
 </script>
 
@@ -29,5 +34,11 @@ export default {
 .search-i {
   margin-left: 8px;
   margin-top:18px;
+}
+.contact-search_img {
+  width: 30px;
+  height: 30px;
+  margin-top: 10px;
+  margin-left: 3px;
 }
 </style>

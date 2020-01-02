@@ -1,7 +1,7 @@
 <template>
     <div class="contactlist-container">
     <div class="contactlist-search">
-      <ContactSearchWindow/>
+      <ContactAddWindow/>
     </div>
     <div class="layout-devider" />
     <div class="contactlist-content">
@@ -15,14 +15,14 @@
 </template>
 
 <script>
-import ContactSearchWindow from './ContactSearchWindow'
+import ContactAddWindow from './ContactAddWindow'
 import ContactListItem from './ContactListItem'
 import { contactList } from '@/api/userRequest'
 
 export default {
   name: 'ContactList',
   components: {
-    ContactSearchWindow,
+    ContactAddWindow,
     ContactListItem
   },
   data () {

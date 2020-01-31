@@ -1,9 +1,9 @@
 import request from '@/utils/request'
 
 export function login (username, password) {
-  let data = { 'userName': username, 'password': password }
+  let data = { 'username': username, 'password': password }
   return request({
-    url: '/login',
+    url: '/auth/login',
     data,
     method: 'post'
   })

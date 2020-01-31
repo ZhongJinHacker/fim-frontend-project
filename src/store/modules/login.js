@@ -3,15 +3,13 @@ import GlobalInfo from '../../global/GlobalInfo'
 
 const userLogin = {
   state: {
-    token: '',
-    userId: '',
-    userNickName: '',
-    avatar: ''
+    Authorization: '',
+    username: ''
   },
 
   mutations: {
     SET_TOKEN: (state, token) => {
-      state.token = token
+      state.Authorization = token
       GlobalInfo.isLogin = true
     },
     SET_NAME: (state, name) => {
@@ -21,9 +19,8 @@ const userLogin = {
       state.avatar = avatar
     },
     SET_USER_INFO: (state, obj) => {
-      state.userId = obj.userId
-      state.token = obj.token
-      state.userNickName = obj.userNickName
+      state.userId = obj.username
+      state.Authorization = obj.Authorization
       GlobalInfo.isLogin = true
     }
   },
@@ -33,7 +30,7 @@ const userLogin = {
       const username = userInfo.username.trim()
       const password = userInfo.password.trim()
       const response = await login(username, password)
-      const obj = response.obj
+      const obj = { 'Authorization': response.data, 'username': username }
       commit('SET_USER_INFO', obj)
     }
   }

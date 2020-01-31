@@ -13,13 +13,13 @@ const userLogin = {
       GlobalInfo.isLogin = true
     },
     SET_NAME: (state, name) => {
-      state.name = name
+      state.username = name
     },
     SET_AVATAR: (state, avatar) => {
       state.avatar = avatar
     },
     SET_USER_INFO: (state, obj) => {
-      state.userId = obj.username
+      state.username = obj.username
       state.Authorization = obj.Authorization
       GlobalInfo.isLogin = true
     }

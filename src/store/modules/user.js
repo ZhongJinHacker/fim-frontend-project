@@ -18,7 +18,7 @@ const user = {
     },
     ADD_SEND_CHAT_RECORD: (state, sendMsgBo) => {
       var chatRecord = state.chatRecordMap.get(sendMsgBo.friendId)
-      chatRecord.push({ msg: sendMsgBo.msg, isMe: true })
+      chatRecord.push({ message: sendMsgBo.msg, isMe: true })
     }
   },
 

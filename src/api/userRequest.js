@@ -25,13 +25,13 @@ export function chatRecord (chatRecordBo) {
 }
 
 export function sendMsg (sendMsgBo) {
-  let data = { userId: sendMsgBo.userId, friendId: sendMsgBo.friendId, msg: sendMsgBo.msg }
+  let data = { userId: '', dstUserId: sendMsgBo.friendId, msg: sendMsgBo.msg }
   return request({
-    url: '/chatRecord',
+    url: '/message/sendMsg',
     data,
     method: 'post',
     headers: {
-      'Authorization': sendMsgBo.token
+      'Authorization': sendMsgBo.Authorization
     }
   })
 }

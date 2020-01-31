@@ -50,7 +50,7 @@ export default {
       if (typeof (WebSocket) === 'undefined') {
         alert('您的浏览器不支持socket')
       } else {
-        const URL = 'ws://echo.websocket.org'
+        const URL = 'ws://localhost:12000/ws'
         this.webSocket = new WebSocket(URL)
         this.webSocket.onmessage = this.webSocketOnMessage
         this.webSocket.onopen = this.webSocketOnOpen
@@ -60,8 +60,9 @@ export default {
     },
     // 连接建立之后执行send方法发送数据
     webSocketOnOpen () {
-      let actions = { 'test': '12345' }
-      this.webSocketSend(JSON.stringify(actions))
+      console.log('连接打开...')
+      const wsContentReqVo = { action: 1, chatMsg: { senderId: this.$store.state.login.username } }
+      this.webSocketSend(JSON.stringify(wsContentReqVo))
     },
     // 连接建立失败重连
     webSocketOnError () {

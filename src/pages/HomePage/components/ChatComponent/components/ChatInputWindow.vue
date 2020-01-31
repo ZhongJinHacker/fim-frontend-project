@@ -16,14 +16,14 @@ export default {
   methods: {
     onSendClick () {
       const self = this
-      const currentFriendId = this.$store.state.user.currentChatFriendId
-      const sendMsgBo = { userId: this.$store.state.login.userId, friendId: currentFriendId, msg: this.msg }
+      const currentFriendId = this.$store.state.user.currentChatFriendName
+      const Authorization = this.$store.state.login.Authorization
+      const sendMsgBo = { Authorization: Authorization, msg: this.msg, friendId: currentFriendId }
       this.$store.dispatch('SEND_MSG', sendMsgBo)
         .then(() => {
           self.msg = ''
           self.$emit('msgSend')
         })
-      this.msg = ''
     }
   }
 }

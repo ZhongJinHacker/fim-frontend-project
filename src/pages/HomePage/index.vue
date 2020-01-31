@@ -15,6 +15,13 @@ import ChatComponent from './components/ChatComponent/index'
 import ContactComponent from './components/ContactComponent/index'
 import { SHOW_CONTACT_COMPONENT, SHOW_CHAT_COMPONENT, DEFAULT_SHOW_COMPONENT } from '@/global/Global.js'
 
+const CONNECT = 1
+const CHAT = 2
+const ONLINE_TYPE = 3
+const KEEPALIVE = 4
+const FRIEND_REQUEST = 5
+const PULL_FRIENDS = 6
+
 export default {
   name: 'HomePage',
   components: {
@@ -25,6 +32,7 @@ export default {
   data () {
     return {
       webSocket: null,
+      keepaliveTimer: null,
       isShowChat: DEFAULT_SHOW_COMPONENT === SHOW_CHAT_COMPONENT,
       isShowContact: DEFAULT_SHOW_COMPONENT === SHOW_CONTACT_COMPONENT
     }
@@ -61,8 +69,13 @@ export default {
     // 连接建立之后执行send方法发送数据
     webSocketOnOpen () {
       console.log('连接打开...')
-      const wsContentReqVo = { action: 1, chatMsg: { senderId: this.$store.state.login.username } }
+      const wsContentReqVo = { action: CONNECT, chatMsg: { senderId: this.$store.state.login.username } }
       this.webSocketSend(JSON.stringify(wsContentReqVo))
+      if (this.keepaliveTimer != null || this.keepaliveTimer !== undefined) {
+        clearInterval(this.keepaliveTimer)
+        this.keepaliveTimer = null
+      }
+      this.keepaliveTimer = setInterval(this.keepalive, 10000)
     },
     // 连接建立失败重连
     webSocketOnError () {
@@ -70,8 +83,9 @@ export default {
     },
     // 数据接收
     webSocketOnMessage (e) {
-      const redata = JSON.parse(e.data)
-      console.log('websocket: onMessage: ' + JSON.stringify(redata))
+      const wsContentRspVo = JSON.parse(e.data)
+      console.log('websocket: onMessage: ' + JSON.stringify(wsContentRspVo))
+      this.handlerServerMsg(wsContentRspVo)
     },
     // 数据发送
     webSocketSend (Data) {
@@ -84,6 +98,27 @@ export default {
     },
     closeWebSocket () {
       this.webSocket.close()
+    },
+    /**
+     * 处理服务端ws发过来的消息
+     */
+    handlerServerMsg (wsContentRspVo) {
+      const action = wsContentRspVo.action
+      switch (action) {
+        case CONNECT:
+          break
+        case CHAT:
+          this.$store.dispatch('RECV_MSG', wsContentRspVo)
+          break
+        case ONLINE_TYPE:
+          break
+      }
+    },
+    keepalive () {
+      const wsContentReqVo = { action: KEEPALIVE, chatMsg: { senderId: this.$store.state.login.username } };
+      // 发送心跳
+      console.log('发送心跳包...')
+      this.webSocketSend(JSON.stringify(wsContentReqVo))
     },
 
     /**

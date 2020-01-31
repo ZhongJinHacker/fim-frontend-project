@@ -19,6 +19,14 @@ const user = {
     ADD_SEND_CHAT_RECORD: (state, sendMsgBo) => {
       var chatRecord = state.chatRecordMap.get(sendMsgBo.friendId)
       chatRecord.push({ message: sendMsgBo.msg, isMe: true })
+    },
+    ADD_RECV_CHAT_RECORD: (state, wsContentRspVo) => {
+      const friendId = wsContentRspVo.chatMsg.senderId
+      const msg = wsContentRspVo.chatMsg.msg
+      var chatRecord = state.chatRecordMap.get(friendId)
+      if (chatRecord !== undefined) {
+        chatRecord.push({ message: msg, isMe: false })
+      }
     }
   },
 
@@ -36,6 +44,10 @@ const user = {
     async SEND_MSG ({ commit }, sendMsgBo) {
       await sendMsg(sendMsgBo)
       commit('ADD_SEND_CHAT_RECORD', sendMsgBo)
+    },
+
+    RECV_MSG ({ commit }, wsContentRspVo) {
+      commit('ADD_RECV_CHAT_RECORD', wsContentRspVo)
     }
   }
 }

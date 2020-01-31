@@ -43,9 +43,12 @@ export default {
       this.getChatRecord(newFriendName)
     }
   },
+  updated () {
+    this.listScrollBottom()
+  },
   methods: {
     onSendMsg () {
-      this.listScrollBottom()
+      // 暂时不干活
     },
     listScrollBottom () {
       this.$nextTick(() => {

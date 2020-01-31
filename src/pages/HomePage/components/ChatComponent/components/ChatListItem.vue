@@ -21,8 +21,8 @@ export default {
   props: ['chat'],
   methods: {
     onItemClick (chat) {
-      console.log('onItemClick: friendId: ' + chat.friendId)
-      this.$store.dispatch('CHANGE_CHAT_FRIEND', { userName: chat.userName, friendId: chat.friendId })
+      console.log('onItemClick: userAccount: ' + chat.userAccount)
+      this.$store.dispatch('CHANGE_CHAT_FRIEND', { userName: chat.userAccount, friendId: chat.userAccount })
     }
   }
 }

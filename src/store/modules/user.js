@@ -4,7 +4,6 @@ const user = {
 
   state: {
     chatRecordMap: new Map(),
-    currentChatFriendId: '',
     currentChatFriendName: ''
   },
 
@@ -15,7 +14,6 @@ const user = {
       state.chatRecordMap.set(friendId, chatRecord)
     },
     SET_CHAT_FRIEND: (state, chatFriend) => {
-      state.currentChatFriendId = chatFriend.friendId
       state.currentChatFriendName = chatFriend.userName
     },
     ADD_SEND_CHAT_RECORD: (state, sendMsgBo) => {
@@ -27,7 +25,7 @@ const user = {
   actions: {
     async CHAT_RECORD ({ commit }, chatRecordBo) {
       const response = await chatRecord(chatRecordBo)
-      const obj = response.obj
+      const obj = { 'chatRecord': response.data.list, 'friendId': chatRecordBo.friendAccount }
       commit('SET_CHAT_REOCRD', obj)
     },
 

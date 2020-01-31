@@ -12,15 +12,12 @@
 export default {
   methods: {
     onGotoChatClick () {
-      const contactBo = { contactId: this.currentContactId }
+      const contactBo = { contactName: this.currentContactName }
       this.$store.dispatch('GOTO_CHAT', contactBo)
-      console.log('去和' + this.currentContactId + ' 聊天')
+      console.log('去和' + this.currentContactName + ' 聊天')
     }
   },
   computed: {
-    currentContactId () {
-      return this.$store.state.contact.currentContactId
-    },
     currentContactName () {
       return this.$store.state.contact.currentContactName
     }

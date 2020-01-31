@@ -3,13 +3,11 @@ import { addContact } from '@/api/userRequest'
 const contact = {
 
   state: {
-    currentContactId: '',
     currentContactName: ''
   },
 
   mutations: {
     SET_CONTACT_DETAIL: (state, contact) => {
-      state.currentContactId = contact.id
       state.currentContactName = contact.userName
     }
   },

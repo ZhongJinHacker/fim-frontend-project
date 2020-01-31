@@ -107,6 +107,7 @@ export default {
   destroyed: function () {
     this.closeWebSocket()
   }
+
 }
 </script>
 

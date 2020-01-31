@@ -1,12 +1,12 @@
 <template>
   <div class="chat-window-container">
-    <div class="chat-window-title">{{ currentChatFriendNickName }}</div>
+    <div class="chat-window-title">{{ currentChatFriendName }}</div>
     <div class="chat-window-divider" />
     <div class="chat-window-record">
       <ul ref='chatDetailList' class="chat-window-ul">
         <li v-for="(record, i) in records" :key="i">
-          <LeftChatItem v-if="record.isMe == false" :msg="record.msg" />
-          <RightChatItem v-else :msg="record.msg"/>
+          <LeftChatItem v-if="record.isMe == false" :msg="record.message" />
+          <RightChatItem v-else :msg="record.message"/>
         </li>
       </ul>
     </div>
@@ -33,17 +33,14 @@ export default {
     }
   },
   computed: {
-    currentChatFriendId () {
-      return this.$store.state.user.currentChatFriendId
-    },
-    currentChatFriendNickName () {
+    currentChatFriendName () {
       return this.$store.state.user.currentChatFriendName
     }
   },
   watch: {
-    currentChatFriendId (newFriendId, oldFriendId) {
-      console.log('ChatWindow: currentChatFriendId: ' + newFriendId)
-      this.getChatRecord(newFriendId)
+    currentChatFriendName (newFriendName, oldFriendName) {
+      console.log('ChatWindow: currentChatFriendId: ' + newFriendName)
+      this.getChatRecord(newFriendName)
     }
   },
   methods: {
@@ -56,14 +53,14 @@ export default {
         divDom.scrollTop = divDom.scrollHeight
       })
     },
-    async getChatRecord (friendId) {
+    async getChatRecord (newFriendName) {
       const self = this
-      const chatRecordBo = { userId: this.$store.state.login.userId, friendId: friendId }
+      const chatRecordBo = { friendAccount: newFriendName, Authorization: this.$store.state.login.Authorization }
       this.$store.dispatch('CHAT_RECORD', chatRecordBo)
         .then(
           () => {
             console.log('获取chat_record成功： ---》')
-            self.records = self.$store.state.user.chatRecordMap.get(friendId)
+            self.records = self.$store.state.user.chatRecordMap.get(newFriendName)
             console.log('获取chat_record成功： ' + self.records)
             self.listScrollBottom()
           }
@@ -76,10 +73,10 @@ export default {
     }
   },
   mounted () {
-    if (this.currentChatFriendId === null || this.currentChatFriendId === '') {
+    if (this.currentChatFriendName === null || this.currentChatFriendName === '') {
       return
     }
-    this.getChatRecord(this.currentChatFriendId)
+    this.getChatRecord(this.currentChatFriendName)
   }
 }
 </script>

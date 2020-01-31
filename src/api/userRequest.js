@@ -1,25 +1,25 @@
 import request from '@/utils/request'
 
 export function chatList (chatListReqBo) {
-  let data = { 'userId': chatListReqBo.userId }
+  let data = { }
   return request({
-    url: '/chatList',
+    url: '/message/chatSummary',
     data,
     method: 'post',
     headers: {
-      'token': chatListReqBo.token
+      'Authorization': chatListReqBo.Authorization
     }
   })
 }
 
 export function chatRecord (chatRecordBo) {
-  let data = { userId: chatRecordBo.userId, friendId: chatRecordBo.friendId }
+  let data = { friendAccount: chatRecordBo.friendAccount }
   return request({
-    url: '/chatRecord',
+    url: '/message/getMsg',
     data,
     method: 'post',
     headers: {
-      'token': chatRecordBo.token
+      'Authorization': chatRecordBo.Authorization
     }
   })
 }
@@ -31,19 +31,19 @@ export function sendMsg (sendMsgBo) {
     data,
     method: 'post',
     headers: {
-      'token': sendMsgBo.token
+      'Authorization': sendMsgBo.token
     }
   })
 }
 
 export function contactList (contactListReqBo) {
-  let data = { 'userId': contactListReqBo.userId }
+  let data = { }
   return request({
-    url: '/contactList',
+    url: '/friend/getFriends',
     data,
     method: 'post',
     headers: {
-      'token': contactListReqBo.token
+      'Authorization': contactListReqBo.Authorization
     }
   })
 }
@@ -55,7 +55,7 @@ export function addContact (contact) {
     data,
     method: 'post',
     headers: {
-      'token': contact.token
+      'Authorization': contact.token
     }
   })
 }

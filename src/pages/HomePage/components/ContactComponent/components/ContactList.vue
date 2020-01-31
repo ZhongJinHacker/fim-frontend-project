@@ -32,10 +32,9 @@ export default {
     }
   },
   async mounted () {
-    const userId = this.$store.state.login.userId
-    const token = this.$store.state.login.token
-    const response = await contactList({ userId, token })
-    this.contactList = response.obj.contactList
+    const Authorization = this.$store.state.login.Authorization
+    const response = await contactList({ Authorization })
+    this.contactList = response.data.friends
     console.log('contact data--> ' + this.contactList[0])
   }
 }

@@ -4,10 +4,10 @@
     <img class="item-avatar" src="@/assets/iconfont/avatar.png"/>
     <div class="item-detail">
       <div class="name">
-        {{ chat.userName }}
+        {{ chat.userAccount }}
       </div>
       <div class="msg">
-        {{ chat.lastMsg }}
+        {{ chat.lastMessage }}
       </div>
     </div>
   </div>

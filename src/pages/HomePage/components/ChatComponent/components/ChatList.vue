@@ -32,10 +32,9 @@ export default {
     }
   },
   async mounted () {
-    const userId = this.$store.state.login.userId
-    const token = this.$store.state.login.token
-    const response = await chatList({ userId, token })
-    this.chatList = response.obj.chatList
+    const Authorization = this.$store.state.login.Authorization
+    const response = await chatList({ Authorization })
+    this.chatList = response.data.list
     console.log('data--> ' + this.chatList[0])
   }
 }

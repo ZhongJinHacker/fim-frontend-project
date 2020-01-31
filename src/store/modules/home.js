@@ -20,7 +20,7 @@ const home = {
     GOTO_CHAT: ({ dispatch, commit }, contact) => {
       commit('SET_CHAT_COMPONENT')
       if (contact != null) {
-        const chatFriend = { userName: contact.userName, friendId: contact.contactId }
+        const chatFriend = { userName: contact.contactName }
         dispatch('CHANGE_CHAT_FRIEND', chatFriend)
       }
     },

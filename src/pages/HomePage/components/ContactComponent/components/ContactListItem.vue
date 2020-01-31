@@ -3,7 +3,7 @@
   <div class="contact-item-detail-container" @click="onItemClick(contact)">
     <img class="item-avatar" src="@/assets/iconfont/avatar.png"/>
     <div class="item-name">
-      {{ contact.userName }}
+      {{ contact }}
     </div>
   </div>
   <div class="item-devider" />
@@ -15,8 +15,8 @@ export default {
   props: ['contact'],
   methods: {
     onItemClick (contact) {
-      console.log('onItemClick: friendId: ' + contact.userName)
-      this.$store.dispatch('SHOW_CONTACT', { userName: contact.userName, id: contact.id })
+      console.log('onItemClick: friendId: ' + contact)
+      this.$store.dispatch('SHOW_CONTACT', { userName: contact })
     }
   }
 }

@@ -3,7 +3,7 @@ import request from '@/utils/request'
 export function login (username, password) {
   let data = { 'username': username, 'password': password }
   return request({
-    url: '/auth/login',
+    url: '/chat/auth/login',
     data,
     method: 'post'
   })

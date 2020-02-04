@@ -3,7 +3,7 @@ import request from '@/utils/request'
 export function chatList (chatListReqBo) {
   let data = { }
   return request({
-    url: '/message/chatSummary',
+    url: '/chat/message/chatSummary',
     data,
     method: 'post',
     headers: {
@@ -15,7 +15,7 @@ export function chatList (chatListReqBo) {
 export function chatRecord (chatRecordBo) {
   let data = { friendAccount: chatRecordBo.friendAccount }
   return request({
-    url: '/message/getMsg',
+    url: '/chat/message/getMsg',
     data,
     method: 'post',
     headers: {
@@ -27,7 +27,7 @@ export function chatRecord (chatRecordBo) {
 export function sendMsg (sendMsgBo) {
   let data = { userId: '', dstUserId: sendMsgBo.friendId, msg: sendMsgBo.msg }
   return request({
-    url: '/message/sendMsg',
+    url: '/chat/message/sendMsg',
     data,
     method: 'post',
     headers: {
@@ -39,7 +39,7 @@ export function sendMsg (sendMsgBo) {
 export function contactList (contactListReqBo) {
   let data = { }
   return request({
-    url: '/friend/getFriends',
+    url: '/chat/friend/getFriends',
     data,
     method: 'post',
     headers: {
@@ -51,7 +51,7 @@ export function contactList (contactListReqBo) {
 export function addContact (contact) {
   let data = { 'contactId': contact.contactId }
   return request({
-    url: '/addContact',
+    url: '/chat/addContact',
     data,
     method: 'post',
     headers: {
